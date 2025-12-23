@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File to PDF Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="icon">📄</span>
+                    PDF Converter
+                </h1>
+                <p class="subtitle">Convert HTML & CSS to beautiful PDFs instantly</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-container">
+                    <div class="drop-zone" id="dropZone">
+                        <div class="drop-icon">⬆️</div>
+                        <h2>Drop files here or click to upload</h2>
+                        <p>Supports HTML and CSS files</p>
+                        <input type="file" id="fileInput" multiple accept=".html,.css" hidden>
+                    </div>
+                    <button class="btn btn-primary" id="uploadBtn">
+                        <span>Choose Files</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- File List -->
+            <section class="files-section" id="filesSection" style="display: none;">
+                <h3 class="section-title">Selected Files</h3>
+                <ul class="file-list" id="fileList"></ul>
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="clearBtn">Clear All</button>
+                    <button class="btn btn-success" id="convertBtn">
+                        <span class="btn-icon">⚡</span>
+                        Convert to PDF
+                    </button>
+                </div>
+            </section>
+
+            <!-- Status/Progress Section -->
+            <section class="status-section" id="statusSection" style="display: none;">
+                <div class="status-card">
+                    <div class="spinner" id="spinner"></div>
+                    <p id="statusText">Converting your file...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="status-subtext" id="statusSubtext">Please wait...</p>
+                </div>
+            </section>
+
+            <!-- Result Section -->
+            <section class="result-section" id="resultSection" style="display: none;">
+                <div class="result-card success">
+                    <div class="result-icon">✓</div>
+                    <h3>Conversion Successful!</h3>
+                    <div class="result-details">
+                        <p id="timeTaken"></p>
+                    </div>
+                    <div class="result-buttons">
+                        <a href="" id="downloadLink" class="btn btn-success" download>
+                            <span>📥 Download PDF</span>
+                        </a>
+                        <button class="btn btn-secondary" id="convertAnotherBtn">Convert Another</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="error-card">
+                    <div class="error-icon">⚠️</div>
+                    <h3 id="errorTitle">Error</h3>
+                    <p id="errorMessage"></p>
+                    <button class="btn btn-secondary" id="closeErrorBtn">Try Again</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Info Section -->
+        <footer class="footer">
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-icon">⚡</span>
+                    <div>
+                        <h4>Fast</h4>
+                        <p>Instant conversion</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🔒</span>
+                    <div>
+                        <h4>Secure</h4>
+                        <p>No data stored</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🎨</span>
+                    <div>
+                        <h4>Quality</h4>
+                        <p>Perfect rendering</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
