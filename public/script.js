@@ -136,7 +136,14 @@ async function convertToPDF() {
             }
         }, 300);
 
-        const response = await fetch('/convert', {
+        // Compute base URL:
+        // - When opened via http(s), use the page origin so requests go to same host/port.
+        // - When opened via file:// (origin is "null"), fall back to localhost:3002 where the server defaults to run.
+        const origin = window.location && window.location.origin;
+        const fallback = 'http://localhost:3002';
+        const baseUrl = (!origin || origin === 'null') ? fallback : origin;
+
+        const response = await fetch(`${baseUrl}/convert`, {
             method: 'POST',
             body: formData
         });
