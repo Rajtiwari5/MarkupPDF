@@ -6,3 +6,4 @@ cache/
 pdf/
 pdf-cache/
 .env
+package-lock.json
